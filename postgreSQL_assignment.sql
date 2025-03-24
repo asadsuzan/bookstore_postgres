@@ -37,3 +37,19 @@ CREATE TABLE customers (
     email VARCHAR(255) UNIQUE NOT NULL,
     joined_date DATE DEFAULT CURRENT_DATE
 );
+
+-- 3️⃣ Create an "orders" table with the following fields:
+
+-- id (Primary Key): A unique identifier for each order.
+-- customer_id (Foreign Key): References the id field in the "customers" table.
+-- book_id (Foreign Key): References the id field in the "books" table.
+-- quantity: The number of books ordered (must be greater than zero).
+-- order_date: The date and time when the order was placed (default to the current timestamp).
+
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    customer_id INT REFERENCES customers(id) NOT NULL,
+    book_id INT REFERENCES books(id) NOT NULL,
+    quantity INT CHECK (quantity > 0),
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
