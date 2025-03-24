@@ -90,3 +90,7 @@ FROM books;
 UPDATE books
 SET price = price * 1.10
 WHERE published_year < 2000;
+-- 8️⃣ Delete customers who haven't placed any orders.
+
+DELETE FROM customers
+WHERE id NOT IN (SELECT DISTINCT customer_id FROM orders);
