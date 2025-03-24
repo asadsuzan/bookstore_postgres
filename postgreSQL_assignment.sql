@@ -84,3 +84,9 @@ HAVING COUNT(o.id) > 1;
 -- 6️⃣ Find the average price of books in the store.
 SELECT AVG(price) AS average_price
 FROM books;
+
+-- 7️⃣ Increase the price of all books published before 2000 by 10%.
+
+UPDATE books
+SET price = price * 1.10
+WHERE published_year < 2000;
