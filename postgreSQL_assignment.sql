@@ -81,3 +81,6 @@ JOIN orders o ON c.id = o.customer_id
 GROUP BY c.name
 HAVING COUNT(o.id) > 1;
 
+-- 6️⃣ Find the average price of books in the store.
+SELECT AVG(price) AS average_price
+FROM books;
